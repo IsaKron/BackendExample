@@ -15,10 +15,12 @@ const MONGO_DB_URI = process.env.MONGO_DB_URI || "mongodb://localhost:27017";
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.unsubscribe(cookieParser());
-app.use(cors({
-  origin: "*",
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: "https://frontendexample.onrender.com",
+    credentials: true,
+  })
+);
 
 app.use("/getCookie", (req, res, next) => {
   const token = Math.random();
